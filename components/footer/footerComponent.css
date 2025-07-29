@@ -1,0 +1,35 @@
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+  
+  .footer .linea {
+    height: 2px;
+    background-color: gray;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Contenedor para centrar o ajustar */
+  .footer .link-container {
+    margin-top: 10px;
+  }
+  
+  /* Enlace con estilo mejorado */
+  .footer .github {
+    color: #24292e;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .footer .github:hover {
+    background-color: #4f5255;
+    color: white;
+  }
+  
