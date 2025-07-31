@@ -10,6 +10,7 @@ export function footer() {
     // Contenedor para centrar o dar más estilo al enlace
     let linkContainer = document.createElement('div');
     linkContainer.className = "link-container";
+    footer.appendChild(linkContainer);
 
     // Enlace a GitHub con emoji
     let github = document.createElement('a');
@@ -17,9 +18,8 @@ export function footer() {
     github.innerHTML = "🐱‍💻GitHub";
     github.href = "https://github.com/samjeronimo/todo_list";
     github.target = "_blank";
-
     linkContainer.appendChild(github);
-    footer.appendChild(linkContainer);
+    
 
     return footer;
 }
