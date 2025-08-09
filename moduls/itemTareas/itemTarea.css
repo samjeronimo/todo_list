@@ -84,3 +84,11 @@
     font-size: 1.3rem;
     text-align: center;
 }
+
+
+@media (max-width: 400px) {
+    /* Estilos para móviles estándar */
+    .tarea {
+        grid-template-columns: auto; 
+    }
+  }
