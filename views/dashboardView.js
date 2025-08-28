@@ -3,63 +3,38 @@ import { header } from "../components/header/headerComponent.js";
 import { tareas } from "../components/tareas/tareasComponent.js";
 import { informacion } from "../components/informacion/infoComponent.js";
 
-function dashboardView() {
-
-
-    let tareasDb = [
-        {
-            indice: 1,
-            titulo: "Investigación sobre células",
-            descripcion: "Realizar una investigación completa sobre los tipos de células, sus partes y funciones en el organismo.",
-            estado: "completado",
-            fechaAs: "17/05/2025",
-            fechaEn: "30/07/2025",
-            listaIntegrantes: ["👩‍🎓", "👨‍🎓", "🧑‍🎓"]
-        },
-        {
-            indice: 2,
-            titulo: "Resumen de la independencia",
-            descripcion: "Elaborar un informe detallado sobre los eventos principales que llevaron a la independencia de Guatemala.",
-            estado: "pendiente",
-            fechaAs: "18/06/2025",
-            fechaEn: "31/07/2025",
-            listaIntegrantes: ["👩‍🎓", "🧑‍🎓"]
-        },
-        {
-            indice: 3,
-            titulo: "Proyecto de ciencias",
-            descripcion: "Diseñar un experimento sencillo que demuestre un principio científico, documentando materiales, pasos y conclusiones.",
-            estado: "en progreso",
-            fechaAs: "10/07/2025",
-            fechaEn: "15/08/2025",
-            listaIntegrantes: ["🧑‍🎓"]
-        }
-    ];
-    
-
-
-    let dashboard = document.createElement('section');
+async function dashboard() {
+    const dashboard = document.querySelector("#dashboard");
     dashboard.className = "dashboard";
-
-    //header
+  
     dashboard.appendChild(header());
-
-    //seccion1
-    let seccion1 = document.createElement('section');
-    seccion1.className = "seccion-1";
-    seccion1.appendChild(tareas(tareasDb));
-    seccion1.appendChild(informacion(tareasDb[0]));
-    dashboard.appendChild(seccion1);
-
-    //footer
+  
+    const section = document.createElement("section");
+    section.className = "section-component";
+  
+    try {
+      const response = await fetch(
+        "https://backend-todolist-hvq8.onrender.com/api/tareas"
+      );
+      if (!response.ok) throw new Error("Error en la respuesta del servidor");
+      const tareasdb = await response.json();
+  
+      if (!tareasdb.length) {
+        section.innerHTML = `<div class="no-tareas">No hay tareas disponibles</div>`;
+      } else {
+        // Renderiza lista de tareas
+        section.appendChild(tareas(tareasdb));
+  
+        // Renderiza info de la primera tarea
+        section.appendChild(informacion(tareasdb[0]));
+      }
+    } catch (error) {
+      console.error(error);
+      section.innerHTML = `<div class="error-message">Error al cargar las tareas</div>`;
+    }
+  
+    dashboard.appendChild(section);
     dashboard.appendChild(footer());
-    
-
-    return dashboard;
-
-}
-
-
-export { dashboardView };
-
-document.body.appendChild(dashboardView());
+  }
+  
+  document.addEventListener("DOMContentLoaded", dashboard);

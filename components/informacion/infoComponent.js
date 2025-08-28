@@ -64,5 +64,13 @@ export function informacion(tareaInfo) {
     });
     descripcion.appendChild(divIntegrantes);
 
+    descripcion.append(
+        estado,
+        h2,
+        p,
+        h2Integrantes,
+        divIntegrantes,
+    )
+
     return div;
 }

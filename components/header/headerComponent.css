@@ -2,51 +2,80 @@ header {
     display: grid;
     grid-template-columns: 1fr 20rem auto;
     align-items: center;
-    gap: 3rem;
-    border: 2px solid black;
-    padding: 1rem;
+    gap: 2rem;
+    padding: 1rem 2rem;
+
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border-bottom: 3px solid #2f5fa3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+    border-radius: 0 0 14px 14px; /* esquinas inferiores redondeadas */
 }
 
+/* Sección de tareas dentro del header */
 .div-tareas {
     max-width: 30rem;
-    height: 100%;
-    font-size: 1.3rem;
-    gap: 1.5rem;
+    font-size: 1.2rem;
+    gap: 1rem;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
 }
 
+/* Número dentro de las tareas */
 .div-tareas .div-num {
     width: 2.5rem;
     height: 2.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-radius: 8px;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: rgba(255,255,255,0.1);
+    font-weight: bold;
 }
 
+/* Logo/usuario */
 .div-logo-user {
-    width: 6rem;
-    height: 6rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 100%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
 .div-logo-user img {
     width: 100%;
     height: 100%;
     border-radius: 100%;
+    object-fit: cover;
 }
 
+/* Responsive */
 @media (max-width: 400px) {
-    /* Estilos para móviles estándar */
     header {
-        display: grid;
         grid-template-columns: 1fr auto auto; 
+        gap: 1rem;
+        padding: 0.8rem 1rem;
     }
-  }
+
+    .div-tareas {
+        grid-template-columns: 1fr;
+        font-size: 1rem;
+    }
+
+    .div-logo-user {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+}
