@@ -6,7 +6,7 @@
     grid-template-rows: auto 1fr auto;
 }
 
-.seccion-1 {
+.section-component {
     display: grid;
     grid-template-columns: 75% 25%;
 }
@@ -15,29 +15,21 @@
   
 @media (max-width: 400px) {
     /* Estilos para móviles estándar */
-    .seccion-1 {
+    .section-component {
         grid-template-columns: auto;
         }
   }
 
-  
-@media (min-width: 481px) and (max-width: 600px) {
-    /* Estilos para móviles grandes / phablets */
-  }
-  
-  @media (min-width: 601px) and (max-width: 768px) {
+@media (max-width: 720px) {
     /* Estilos para tablets en modo vertical */
+    .section-component {
+      grid-template-columns: auto;
+    }
   }
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 1080px) {
     /* Estilos para tablets en modo horizontal */
+    .section-component {
+        grid-template-columns: auto;
+    } 
   }
-
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    /* Estilos para laptops y pantallas medianas */
-  }
-
-  @media (min-width: 1281px) {
-    /* Estilos para pantallas grandes o monitores */
-  }
-  
